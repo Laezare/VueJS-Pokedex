@@ -7,11 +7,24 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
 
 export default {
   name: 'app',
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      pokemons: []
+    }
+  },
+  mounted() {
+    axios
+      .get('https://pokeapi.co/api/v2/pokemon')
+      .then(response => {
+        this.pokemons = response.data.results
+      })
   }
 }
 </script>
