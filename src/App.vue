@@ -1,31 +1,26 @@
 <template>
   <div id="app">
-  ul
-    li(v-for="pokemon in pokemons")
-      a(v-bind:href="pokemon.url") {{ pokemon.name }}
-  </div>
+  {{ info }}
+</div>
 </template>
 
 <script>
 
 import axios from 'axios'
 
-export default {
+new Vue({
   el: '#app',
-  components: {
-    
-  },
-  data() {
+  data () {
     return {
-      pokemons: []
+      info: null
     }
   },
-  mounted() {
+  mounted () {
     axios
-      .get('https://pokeapi.co/api/v2/pokemon')
-      .then(response => this.pokemons = response.data.results)
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => (this.info = response))
   }
-}
+})
 </script>
 
 <style>
