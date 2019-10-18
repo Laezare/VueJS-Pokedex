@@ -2,8 +2,7 @@
   <div id="app">
   ul
     li(v-for="pokemon in pokemons")
-      a(v-bind:href="pokemon.url") 
-        <h3>{{ pokemon.name }}</h3> 
+      a(v-bind:href="pokemon.url") {{ pokemon.name }}
   </div>
 </template>
 
