@@ -2,7 +2,8 @@
   #app
   ul
     li(v-for="pokemon in pokemons")
-      a(v-bind:href="pokemon.url") {{ pokemon.name }} 
+      a(v-bind:href="pokemon.url") 
+        <h3>{{ pokemon.name }}</h3> 
 </template>
 
 <script>
