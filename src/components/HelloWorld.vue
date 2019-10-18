@@ -4,8 +4,18 @@
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  data() {
+    return {
+      pokemonList: []
+    }
+  }
+}
+
+methods : {
+  randomPokemon() {
+    fetch('https://pokeapi.co/api/v2/pokemon')
+    .then(response => response.json())
+    .then(response => this.pokemonList = response.name)
   }
 }
 </script>
